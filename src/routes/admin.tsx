@@ -84,6 +84,29 @@ export const Route = createFileRoute("/admin")({
 
 type ActiveTab = "dashboard" | "products" | "categories" | "orders" | "system";
 
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-slate-900/95 backdrop-blur-md text-white p-3.5 rounded-2xl shadow-2xl border border-slate-700 text-xs space-y-1.5 font-sans">
+        <p className="font-black text-slate-300 uppercase tracking-widest text-[10px] border-b border-slate-700/80 pb-1">
+          Period: {label}
+        </p>
+        <div className="flex items-center justify-between gap-4 font-bold text-sky-400">
+          <span>Sales Revenue:</span>
+          <span className="font-extrabold text-sm text-white">₹{payload[0]?.value?.toLocaleString("en-IN")}</span>
+        </div>
+        {payload[1] && (
+          <div className="flex items-center justify-between gap-4 font-bold text-purple-400">
+            <span>Orders Placed:</span>
+            <span className="font-extrabold text-white">{payload[1]?.value} Orders</span>
+          </div>
+        )}
+      </div>
+    );
+  }
+  return null;
+};
+
 // -------------------------------------------------------------
 // MODERN ANIMATED RECHARTS SALES CHART COMPONENT
 // -------------------------------------------------------------
@@ -116,29 +139,6 @@ function ModernAnimatedSalesChart({ totalRevenue, totalOrders }: { totalRevenue:
   ];
 
   const data = timeframe === "monthly" ? monthlyData : timeframe === "quarterly" ? quarterlyData : yearlyData;
-
-  const CustomTooltip = ({ active, payload, label }: any) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="bg-slate-900/95 backdrop-blur-md text-white p-3.5 rounded-2xl shadow-2xl border border-slate-700 text-xs space-y-1.5 font-sans">
-          <p className="font-black text-slate-300 uppercase tracking-widest text-[10px] border-b border-slate-700/80 pb-1">
-            Period: {label}
-          </p>
-          <div className="flex items-center justify-between gap-4 font-bold text-sky-400">
-            <span>Sales Revenue:</span>
-            <span className="font-extrabold text-sm text-white">₹{payload[0]?.value?.toLocaleString("en-IN")}</span>
-          </div>
-          {payload[1] && (
-            <div className="flex items-center justify-between gap-4 font-bold text-purple-400">
-              <span>Orders Placed:</span>
-              <span className="font-extrabold text-white">{payload[1]?.value} Orders</span>
-            </div>
-          )}
-        </div>
-      );
-    }
-    return null;
-  };
 
   return (
     <div className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] space-y-5">
