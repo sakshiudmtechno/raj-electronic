@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+  import.meta.env.VITE_API_BASE_URL || "https://darkseagreen-owl-422194.hostingersite.com/api";
 
 const BACKEND_BASE_URL =
   import.meta.env.VITE_BACKEND_URL || API_BASE_URL.replace(/\/api\/?$/, "");
