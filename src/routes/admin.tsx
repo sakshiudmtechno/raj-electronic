@@ -212,7 +212,7 @@ function ModernAnimatedSalesChart({ totalRevenue, totalOrders }: { totalRevenue:
                 tickLine={false}
                 tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}k`}
               />
-              <Tooltip content={<CustomTooltip />} />
+              <Tooltip content={CustomTooltip} />
               <Area
                 type="monotone"
                 dataKey="revenue"
@@ -249,7 +249,7 @@ function ModernAnimatedSalesChart({ totalRevenue, totalOrders }: { totalRevenue:
                 tickLine={false}
                 tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}k`}
               />
-              <Tooltip content={<CustomTooltip />} />
+              <Tooltip content={CustomTooltip} />
               <Bar
                 dataKey="revenue"
                 fill="#2563eb"
