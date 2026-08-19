@@ -1,0 +1,25 @@
+[
+  {
+    "_id": "order_1",
+    "orderId": "ORD-928104",
+    "customerName": "Rahul Sharma",
+    "customerPhone": "9876543210",
+    "customerAddress": "123 Main Street, Sector 15",
+    "city": "Jaipur",
+    "pincode": "302015",
+    "items": [
+      {
+        "title": "Eveready 9W LED Bulb B22 6500K Cool Day Light (4 Bulbs Value Pack)",
+        "price": "₹299",
+        "qty": 2,
+        "img": "https://doc-duplicator-deluxe.lovable.app/__l5e/assets/product-3.png"
+      }
+    ],
+    "totalAmount": 598,
+    "paymentMethod": "Cash on Delivery (COD)",
+    "paymentStatus": "Pending (COD)",
+    "transactionId": "",
+    "orderStatus": "Processing",
+    "createdAt": "2026-07-31T07:05:39.739Z"
+  }
+]
